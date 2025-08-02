@@ -1,32 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-     <title>LOGIN PAGE</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>LOGIN PAGE</title>
 </head>
 <body>
-    <section class="bg-gray-50 min-h-screen flex items-center justify-center">
-        <div class="bg-gray 100 flex rounded-2xl shadow lg max-w-3x1 p-5">
-            <div class ="w-1/2" px-16>
-                <h2 class="font-bold text-2xl text-[#3B82F5]">LOGIN</h2>
+  <section class="bg-gray-50 min-h-screen flex items-center justify-center">
+    <div class="bg-gray-100 flex rounded-2xl shadow-lg max-w-3xl p-5 items-center">
+      <!-- Login Form -->
+      <div class="w-1/2 px-8">
+        <h2 class="font-bold text-2xl text-blue-500">LOGIN</h2>
 
-                <form action=""class="flex flex-col gap-4">
-                    <input class="p-2 mt-8 rounded-x1 border" type="text" name="email" placeholder="Email">
-                     <input class="p-2 mt-8 rounded-x1 border" type="password" name="password" placeholder="Password">
+        <form action="" class="flex flex-col gap-4">
+          <input
+            class="p-2 mt-8 rounded-xl border"
+            type="text"
+            name="email"
+            placeholder="Email"
+          />
+          <input
+            class="p-2 rounded-xl border"
+            type="password"
+            name="password"
+            placeholder="Password"
+          />
 
-                     <button class="bg-[#3B82F5] rounded-x1 text-white py-2">Login</button>
-                </form>
+          <button class="bg-blue-500 hover:bg-blue-600 rounded-xl text-white py-2">
+            Login
+          </button>
+        </form>
+      </div>
 
-            </div> 
-
-
-            <div class="w-1/2 ">
-                <img class="sm:block hidden rounded-2xl" src="login.jpg" alt="">
-
-            </div>
-        </div>
-    </section>
+      <!-- Image -->
+      <div class="w-1/2 hidden sm:block">
+        <img class="rounded-2xl" src="login.jpg" alt="Login illustration" />
+      </div>
+    </div>
+  </section>
 </body>
 </html>
