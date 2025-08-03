@@ -34,7 +34,7 @@ body {
     background: var(--white);
     box-shadow: var(--shadow);
     position: fixed;
-    top: 0;
+    top: 0; /* Always visible */
     width: 100%;
     z-index: 1000;
     border-bottom: 1px solid #e9ecef;
@@ -44,7 +44,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0;
+    padding: 0.8rem 0;
 }
 
 .logo {
@@ -54,8 +54,8 @@ body {
 }
 
 .logo-circle {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -71,13 +71,13 @@ body {
 }
 
 .logo-text h1 {
-    font-size: 20px;
+    font-size: 16px;
     color: var(--primary-black);
     font-weight: 700;
 }
 
 .logo-text p {
-    font-size: 12px;
+    font-size: 10px;
     color: var(--text-gray);
     font-weight: 400;
 }
@@ -85,7 +85,7 @@ body {
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 32px;
+    gap: 26px;
     align-items: center;
 }
 
@@ -93,7 +93,7 @@ body {
     text-decoration: none;
     color: var(--text-gray);
     font-weight: 500;
-    font-size: 14px;
+    font-size: 12px;
     transition: color 0.3s;
 }
 
@@ -106,10 +106,10 @@ body {
 .apply-btn {
     background: var(--accent-green);
     color: white !important;
-    padding: 12px 24px;
+    padding: 10px 20px;
     border-radius: 8px;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 12px;
     transition: all 0.3s;
 }
 
@@ -122,10 +122,10 @@ body {
 .virtual-tour-btn {
     background: var(--accent-yellow);
     color: var(--primary-black) !important;
-    padding: 12px 24px;
+    padding: 10px 20px;
     border-radius: 8px;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 12px;
     transition: all 0.3s;
 }
 
@@ -133,6 +133,22 @@ body {
     transform: translateY(-3px) scale(1.05);
     box-shadow: 0 12px 35px rgba(255, 193, 7, 0.4);
     background: linear-gradient(135deg, #ffb300, #FFC107);
+}
+
+.directions-btn {
+    background: var(--accent-blue);
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 12px;
+    transition: all 0.3s;
+}
+
+.directions-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 35px rgba(33, 150, 243, 0.4);
+    background: linear-gradient(135deg, #1976d2, #2196F3);
 }
 
 .mobile-menu {
@@ -146,15 +162,33 @@ body {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(rgba(248, 249, 250, 0.8), rgba(248, 249, 250, 0.8)), url('123.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    padding: 120px 0 80px;
-    min-height: 100vh;
+    padding: 0;
+    height: 100vh;
     display: flex;
     align-items: center;
     position: relative;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(248, 249, 250, 0.7);
+    z-index: 2;
 }
 
 .hero-content {
@@ -163,19 +197,11 @@ body {
     gap: 80px;
     align-items: center;
     position: relative;
-    z-index: 2;
+    z-index: 3;
+    padding: 120px 0 80px;
 }
 
-.hero::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(255, 255, 255, 0.1);
-    z-index: 1;
-}
+
 
 .hero-text h1 {
     font-size: 52px;
@@ -301,6 +327,101 @@ body {
     font-weight: 600;
     margin: 4px;
     display: inline-block;
+}
+
+/* Teachers Section */
+.teachers {
+    padding: 80px 0;
+    background: var(--light-gray);
+}
+
+.teachers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 32px;
+}
+
+.teacher-card {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: all 0.3s;
+    border: 1px solid #e9ecef;
+}
+
+.teacher-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    border-color: var(--accent-green);
+}
+
+.teacher-image {
+    height: 200px;
+    background: linear-gradient(135deg, var(--accent-green), var(--accent-blue));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.teacher-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+}
+
+.teacher-avatar {
+    font-size: 80px;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.teacher-content {
+    padding: 32px;
+}
+
+.teacher-content h3 {
+    font-size: 24px;
+    color: var(--primary-black);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.teacher-subject {
+    font-size: 16px;
+    color: var(--accent-green);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.teacher-qualification {
+    font-size: 14px;
+    color: var(--text-gray);
+    margin-bottom: 8px;
+    font-style: italic;
+}
+
+.teacher-experience {
+    font-size: 14px;
+    color: var(--text-gray);
+    margin-bottom: 16px;
+}
+
+.teacher-specialties {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.specialty-tag {
+    background: var(--accent-yellow);
+    color: var(--primary-black);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
 }
 
 /* Programs Section */
@@ -708,6 +829,10 @@ body {
     }
 
     .programs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .teachers-grid {
         grid-template-columns: 1fr;
     }
 
